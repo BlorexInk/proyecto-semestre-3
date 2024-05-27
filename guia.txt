@@ -1,0 +1,23 @@
+1. python download: (ya esta descragado)
+    habilitar las variales al instalar python
+
+2. instalar django: pip install django : (django ya esta isntalado en mi pc)
+3. django-admin startproject administrador
+
+4. python manage.py runserver 0.0.0.0:9010 
+    (se debe abrir en la carpeta administrador
+     -cd administrador (sirve para abrir la carpeta deseada)
+     -dir (sirve para verificar los archivos dentro de la carpeta) 
+     )
+
+5. PARA CREAR MODULOS
+django-admin startapp venta
+
+
+
+django-admin startapp conta
+django-admin startapp remu
+django-admin startapp somos
+
+agregar apps al setting  de nuestro poyecto
+para ser ordenados creamos una ruta (urls,py)por cada app modulo

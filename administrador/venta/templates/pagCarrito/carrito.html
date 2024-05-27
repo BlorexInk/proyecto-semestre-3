@@ -1,0 +1,123 @@
+{% extends "menu/base.html" %}
+{% block content %}
+<!-- END sections: header-group -->
+
+<main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <div id="shopify-section-template--16888207999197__cart-items" class="shopify-section"><link href="/static/carrito/component-cart.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-cart-items.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-totals.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-price.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-discounts.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-loading-overlay.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/quantity-popover.css" rel="stylesheet" type="text/css" media="all">
+<style data-shopify="">.section-template--16888207999197__cart-items-padding {
+  padding-top: 27px;
+  padding-bottom: 27px;
+}
+
+@media screen and (min-width: 750px) {
+  .section-template--16888207999197__cart-items-padding {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+}</style><script src="/static/carrito/cart.js.descarga" defer="defer"></script><script src="/static/carrito/quantity-popover.js.descarga" defer="defer"></script>
+
+<cart-items class="page-width is-empty">
+<div class="title-wrapper-with-link">
+  <h1 class="title title--primary">Tu carrito</h1>
+  <a href="https://mundodelte.cl/collections/all" class="underlined-link">Seguir comprando</a>
+</div>
+
+<div class="cart__warnings">
+  <h1 class="cart__empty-text">Tu carrito esta vacío</h1>
+  <a href="http://localhost:9010/ventas/colleccion" class="button">
+    Seguir comprando
+  </a></div>
+
+<form action="https://mundodelte.cl/cart" class="cart__contents critical-hidden" method="post" id="cart">
+  <div class="cart__items" id="main-cart-items" data-id="template--16888207999197__cart-items">
+    <div class="js-contents"></div>
+  </div>
+
+  <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
+  <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">
+    Cargando...
+  </p>
+</form>
+</cart-items>
+
+
+</div><div id="shopify-section-template--16888207999197__cart-footer" class="shopify-section cart__footer-wrapper"><link href="/static/carrito/component-cart.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-totals.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-price.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/carrito/component-discounts.css" rel="stylesheet" type="text/css" media="all">
+<style data-shopify="">.section-template--16888207999197__cart-footer-padding {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+@media screen and (min-width: 750px) {
+  .section-template--16888207999197__cart-footer-padding {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+}</style><div class="page-width is-empty" id="main-cart-footer" data-id="template--16888207999197__cart-footer">
+<div>
+  <div class="cart__footer section-template--16888207999197__cart-footer-padding"><div class="cart__blocks">
+      
+<div class="js-contents">
+              <div></div>
+
+              <div class="totals">
+                <h2 class="totals__total">Total estimado</h2>
+                <p class="totals__total-value">$0 CLP</p>
+              </div>
+
+              <small class="tax-note caption-large rte">Impuesto incluido, envío y descuentos calculados en la pantalla de pago
+</small>
+            </div>
+<div class="cart__ctas">
+              <noscript>
+                <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                  Actualizar
+                </button>
+              </noscript>
+
+              <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout" disabled="" form="cart">
+                Pagar pedido
+              </button>
+            </div>
+
+      <div id="cart-errors"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  function isIE() {
+    const ua = window.navigator.userAgent;
+    const msie = ua.indexOf('MSIE ');
+    const trident = ua.indexOf('Trident/');
+
+    return msie > 0 || trident > 0;
+  }
+
+  if (!isIE()) return;
+  const cartSubmitInput = document.createElement('input');
+  cartSubmitInput.setAttribute('name', 'checkout');
+  cartSubmitInput.setAttribute('type', 'hidden');
+  document.querySelector('#cart').appendChild(cartSubmitInput);
+  document.querySelector('#checkout').addEventListener('click', function (event) {
+    document.querySelector('#cart').submit();
+  });
+});
+</script>
+
+
+</div>
+  </main>
+
+  <!-- BEGIN sections: footer-group -->
+  {% endblock content %}   
